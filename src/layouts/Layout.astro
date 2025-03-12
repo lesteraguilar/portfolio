@@ -1,22 +1,50 @@
+---
+import "../styles/global.css";
+---
+
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik:slnt,wght@-10..0,300..700&display=swap"
+			rel="stylesheet"
+		/>
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Lester Aguilar's Portfolio</title>
 	</head>
-	<body>
-		<slot />
+	<body class="bg-linear-to-b from-black to-gray-950 p-4">
+		<div>
+			<slot />
+		</div>
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%
+		);
+	}
+
+	html {
+		font-family: "rubik", sans-serif;
+		background: #13151a;
+		color: #fff;
+	}
+
 	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+		@apply grid place-content-center;
+	}
+
+	body > div {
+		@apply container;
 	}
 </style>
